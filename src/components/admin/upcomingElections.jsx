@@ -172,9 +172,11 @@ function AdminUpcomingElections() {
      * @returns {boolean} true if ended.
      */
     const checkDate = (_registrationEndDateTime) => {
+        console.log("checkRegStartDate: ", _registrationEndDateTime);
         var current = new Date().toLocaleString();
         var regDate = new Date(_registrationEndDateTime).toLocaleString();
-
+        console.log("current from checkRegenddate: ", current);
+        console.log("regdate from checkregenddate: ", regDate);
         if (current > regDate) {
             return false;
         } else {
@@ -188,8 +190,11 @@ function AdminUpcomingElections() {
      * @returns {boolean} true if started.
      */
     const checkRegStartDate = (_registrationStartDateTime) => {
+        console.log("checkRegStartDate: ", _registrationStartDateTime);
         var current = new Date().toLocaleString();
         var regDate = new Date(_registrationStartDateTime).toLocaleString();
+        console.log("current from checkRegstartdate: ", current);
+        console.log("regdate from checkregstartdate: ", regDate);
 
         if (current > regDate) {
             return false;
@@ -204,6 +209,7 @@ function AdminUpcomingElections() {
      * @returns {string} converted date.
      */
     const convertISOtoLocal = (_date) => {
+        console.log("convertISOtoLocal: ", _date);
         var date = new Date(_date).toDateString();
         var time = new Date(_date).toLocaleTimeString();
         var finalDate = date + ", " + time;
