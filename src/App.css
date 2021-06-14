@@ -1,0 +1,122 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* /////////////////////////////////////////// */
+
+.navlinks {
+  font-weight: bold;
+  font-size: large;
+}
+
+.display-4 {
+  font-family: "Roboto", sans-serif;
+  font-size: 6rem;
+  color: #15784e;
+  margin: 0;
+}
+
+.lead {
+  color: #15784e;
+
+  margin: 0;
+  padding-bottom: 2rem;
+}
+
+.progressbar {
+  counter-reset: step;
+}
+
+.progressbar li {
+  list-style-type: none;
+  float: left;
+  width: 33.33%;
+  position: relative;
+  text-align: center;
+}
+
+.progressbar li:before {
+  content: counter(step);
+  counter-increment: step;
+  width: 30px;
+  height: 30px;
+  line-height: 23px;
+  border: 2px solid #ddd;
+  display: block;
+  text-align: center;
+  margin: 0 auto 10px auto;
+  border-radius: 50%;
+  background-color: white;
+}
+
+.progressbar li:after {
+  content: "";
+  position: absolute;
+  width: 90%;
+  height: 2px;
+  background-color: #ddd;
+  top: 15px;
+  left: -45%;
+}
+
+.progressbar li:first-child:after {
+  content: none;
+}
+
+.progressbar li.active {
+  color: green;
+}
+
+.progressbar li.active:before {
+  border-color: green;
+}
+
+.progressbar li.active + li:after {
+  background-color: green;
+}
+
+.progressbar li.active + li:after {
+  background-color: green;
+}
+
+.divider-vertical {
+  height: 30px;
+  margin: 0 9px;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+}
