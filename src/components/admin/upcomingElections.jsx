@@ -171,31 +171,9 @@ function AdminUpcomingElections() {
      * @param {date} _registrationEndDateTime registration end date time
      * @returns {boolean} true if ended.
      */
-    const checkDate = (_registrationEndDateTime) => {
-        console.log("checkRegStartDate: ", _registrationEndDateTime);
+    const checkDate = (_DateTime) => {
         var current = new Date().toLocaleString();
-        var regDate = new Date(_registrationEndDateTime).toLocaleString();
-        console.log("current from checkRegenddate: ", current);
-        console.log("regdate from checkregenddate: ", regDate);
-        if (current > regDate) {
-            return false;
-        } else {
-            return true;
-        }
-    }
-
-    /**
-     * Checks if registration started
-     * @param {date} _registrationStartDateTime registration start date time
-     * @returns {boolean} true if started.
-     */
-    const checkRegStartDate = (_registrationStartDateTime) => {
-        console.log("checkRegStartDate: ", _registrationStartDateTime);
-        var current = new Date().toLocaleString();
-        var regDate = new Date(_registrationStartDateTime).toLocaleString();
-        console.log("current from checkRegstartdate: ", current);
-        console.log("regdate from checkregstartdate: ", regDate);
-
+        var regDate = new Date(_DateTime).toLocaleString();
         if (current > regDate) {
             return false;
         } else {
@@ -209,7 +187,6 @@ function AdminUpcomingElections() {
      * @returns {string} converted date.
      */
     const convertISOtoLocal = (_date) => {
-        console.log("convertISOtoLocal: ", _date);
         var date = new Date(_date).toDateString();
         var time = new Date(_date).toLocaleTimeString();
         var finalDate = date + ", " + time;
@@ -257,7 +234,7 @@ function AdminUpcomingElections() {
                                                     checkDate(election.registrationEndDateTime) ?
                                                         <span>
                                                             {
-                                                                checkRegStartDate(election.registrationStartDateTime) ?
+                                                                checkDate(election.registrationStartDateTime) ?
                                                                     <span>
                                                                         {election.college}
                                                                         <h5 style={{ marginBottom: "0px", marginTop: "5px" }}><span className="badge rounded-pill bg-warning ">Registration Not Started Yet</span></h5>
@@ -280,7 +257,7 @@ function AdminUpcomingElections() {
                                             <CardContent style={{ fontSize: "18px" }}>
                                                 <Typography gutterBottom>
                                                     {
-                                                        checkRegStartDate(election.registrationStartDateTime) ?
+                                                        checkDate(election.registrationStartDateTime) ?
                                                             <span>
                                                                 <b>Registration Starts at: </b>{convertISOtoLocal(election.registrationStartDateTime)}<br />
                                                             </span>
@@ -303,7 +280,7 @@ function AdminUpcomingElections() {
                                                         checkElectionOwner(election.adminUsername) ?
                                                             <span>
                                                                 {
-                                                                    checkRegStartDate(election.registrationStartDateTime) ?
+                                                                    checkDate(election.registrationStartDateTime) ?
                                                                         null
                                                                         :
                                                                         <Button onClick={() => { displayRequests(election) }} className="btn btn-primary" style={{ marginTop: "10px" }}>Candidate Requests</Button>
