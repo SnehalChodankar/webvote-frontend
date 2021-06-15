@@ -75,6 +75,11 @@ function ElectionForm() {
     const [registrationStartDateTime, setRegistrationStartDateTime] = useState();
     const [registrationEndDateTime, setRegistrationEndDateTime] = useState();
     const [electionAddress, setElectionAddress] = useState("");
+
+    console.log("reg start: ",registrationStartDateTime);
+    console.log("reg end: ",registrationEndDateTime);
+    console.log("voting start: ",votingStartDateTime);
+    console.log("voting end: ",votingEndDateTime);
     //-----------------------Section Ended: Variables and States-----------------------------------------------
 
     const [voterColleges, setVoterColleges] = React.useState({
