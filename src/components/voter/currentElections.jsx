@@ -87,7 +87,7 @@ function CurrentElectionsVoter() {
         axios({
             method: "GET",
             withCredentials: true,
-            url: process.env.REACT_APP_BACKEND_ORIGIN+'/user',
+            url: process.env.REACT_APP_BACKEND_ORIGIN + '/user',
         })
             .then(res => {
                 setData(res.data);
@@ -96,11 +96,11 @@ function CurrentElectionsVoter() {
                 if (res.data.prNumber == null) {
                     history.push('/');
                 }
-                else{
+                else {
                     getElections();
                     getVotersBalance(res.data.walletAddress);
                 }
-                
+
             });
     }
 
@@ -162,7 +162,7 @@ function CurrentElectionsVoter() {
                 status: "voting"
             },
             withCredentials: true,
-            url: process.env.REACT_APP_BACKEND_ORIGIN+'/getElections',
+            url: process.env.REACT_APP_BACKEND_ORIGIN + '/getElections',
         })
             .then(res => {
                 setElections(res.data);
@@ -304,7 +304,7 @@ function CurrentElectionsVoter() {
                                                                         </Button>
 
                                                                         <Button hidden name={election.electionAddress} onClick={() => { gotoVote(election) }} className="btn btn-primary" style={{ marginLeft: "5px", width: "150px" }}>
-                                                                            <span>Caste Your Vote</span>
+                                                                            <span>Cast Your Vote</span>
                                                                         </Button>
 
 
