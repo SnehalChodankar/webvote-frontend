@@ -7,6 +7,7 @@ import axios from 'axios';
 import FooterWV from '../common/footerComponent';
 import Delayed from '../common/delayed';
 import CandidatesDisplay from '../common/candidatesDisplay';
+import CandidateVoteCountTable from '../common/candidatesVoteCountTable';
 import CandidateGraph from '../common/candidateGraph';
 import AdminNavbar from '../navbar/adminNavbar';
 
@@ -50,7 +51,7 @@ function DetailedResultAdmin() {
         axios({
             method: "GET",
             withCredentials: true,
-            url: process.env.REACT_APP_BACKEND_ORIGIN+'/user'
+            url: process.env.REACT_APP_BACKEND_ORIGIN + '/user'
         })
             .then(res => {
                 setData(res.data);
@@ -78,7 +79,7 @@ function DetailedResultAdmin() {
                 electionAddress: location.state.electionAddress,
             },
             withCredentials: true,
-            url: process.env.REACT_APP_BACKEND_ORIGIN+'/getCandidates',
+            url: process.env.REACT_APP_BACKEND_ORIGIN + '/getCandidates',
         })
             .then(res => {
                 setAcceptedCandidates(res.data);
@@ -132,6 +133,12 @@ function DetailedResultAdmin() {
                         <br />
                     </Paper>
                 </Grid>
+
+                {
+                    acceptedCandidates ?
+                        <CandidateVoteCountTable acceptedCandidates={acceptedCandidates} electionAddress={location.state.electionAddress} />
+                        : null
+                }
 
                 <CandidatesDisplay acceptedCandidates={acceptedCandidates} />
 

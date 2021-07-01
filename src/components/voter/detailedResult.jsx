@@ -5,6 +5,7 @@ import { Container } from 'react-bootstrap';
 import Delayed from '../common/delayed';
 import FooterWV from '../common/footerComponent';
 import CandidatesDisplay from '../common/candidatesDisplay';
+import CandidateVoteCountTable from '../common/candidatesVoteCountTable';
 import CandidateGraph from '../common/candidateGraph';
 import VoterNavbar from '../navbar/voterNavbar';
 
@@ -49,7 +50,7 @@ function DetailedResultVoter() {
         axios({
             method: "GET",
             withCredentials: true,
-            url: process.env.REACT_APP_BACKEND_ORIGIN+'/user',
+            url: process.env.REACT_APP_BACKEND_ORIGIN + '/user',
         })
             .then(res => {
                 setData(res.data);
@@ -77,7 +78,7 @@ function DetailedResultVoter() {
                 electionAddress: location.state.electionAddress,
             },
             withCredentials: true,
-            url: process.env.REACT_APP_BACKEND_ORIGIN+'/getCandidates',
+            url: process.env.REACT_APP_BACKEND_ORIGIN + '/getCandidates',
         })
             .then(res => {
                 setAcceptedCandidates(res.data);
@@ -132,6 +133,12 @@ function DetailedResultVoter() {
                         <br />
                     </Paper>
                 </Grid>
+
+                {
+                    acceptedCandidates ?
+                        <CandidateVoteCountTable acceptedCandidates={acceptedCandidates} electionAddress={location.state.electionAddress} />
+                        : null
+                }
 
                 <CandidatesDisplay acceptedCandidates={acceptedCandidates} />
 

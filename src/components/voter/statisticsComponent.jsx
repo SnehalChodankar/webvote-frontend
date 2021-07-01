@@ -7,7 +7,7 @@ import axios from 'axios';
 import Delayed from '../common/delayed';
 import FooterWV from '../common/footerComponent';
 import CandidatesDisplay from '../common/candidatesDisplay';
-import CandidateVoteCountTable from '../common/candidatesVoteCountTable';
+// import CandidateVoteCountTable from '../common/candidatesVoteCountTable';
 import VoterNavbar from '../navbar/voterNavbar';
 
 import { Grid, Paper, TextField, Card, CardHeader, CardContent, Typography } from '@material-ui/core';
@@ -49,7 +49,7 @@ function StatisticsVoter() {
         axios({
             method: "GET",
             withCredentials: true,
-            url: process.env.REACT_APP_BACKEND_ORIGIN+'/user',
+            url: process.env.REACT_APP_BACKEND_ORIGIN + '/user',
         })
             .then(res => {
                 setData(res.data);
@@ -77,7 +77,7 @@ function StatisticsVoter() {
                 electionAddress: location.state.electionAddress,
             },
             withCredentials: true,
-            url: process.env.REACT_APP_BACKEND_ORIGIN+'/getCandidates',
+            url: process.env.REACT_APP_BACKEND_ORIGIN + '/getCandidates',
         })
             .then(res => {
                 setAcceptedCandidates(res.data);
@@ -128,11 +128,11 @@ function StatisticsVoter() {
                     </Paper>
                 </Grid>
 
-                {
+                {/* {
                     acceptedCandidates ?
                         <CandidateVoteCountTable acceptedCandidates={acceptedCandidates} electionAddress={location.state.electionAddress} />
                         : null
-                }
+                } */}
 
                 <CandidatesDisplay acceptedCandidates={acceptedCandidates} />
                 <br /><br />

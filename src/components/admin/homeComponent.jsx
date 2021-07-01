@@ -84,7 +84,7 @@ function AdminHome() {
         axios({
             method: "GET",
             withCredentials: true,
-            url: process.env.REACT_APP_BACKEND_ORIGIN+'/user'
+            url: process.env.REACT_APP_BACKEND_ORIGIN + '/user'
         })
             .then(res => {
                 setData(res.data);
@@ -153,7 +153,7 @@ function AdminHome() {
                 status: "voting"
             },
             withCredentials: true,
-            url: process.env.REACT_APP_BACKEND_ORIGIN+'/getElections',
+            url: process.env.REACT_APP_BACKEND_ORIGIN + '/getElections',
         })
             .then(res => {
                 setElections(res.data);
@@ -210,7 +210,7 @@ function AdminHome() {
                 electionAddress: _electionAddress,
             },
             withCredentials: true,
-            url: process.env.REACT_APP_BACKEND_ORIGIN+'/deleteElection',
+            url: process.env.REACT_APP_BACKEND_ORIGIN + '/deleteElection',
         })
             .then(res => {
                 deleteCandidates(_electionAddress);
@@ -228,7 +228,7 @@ function AdminHome() {
                 electionAddress: _electionAddress,
             },
             withCredentials: true,
-            url: process.env.REACT_APP_BACKEND_ORIGIN+'/deleteElectionCandidates',
+            url: process.env.REACT_APP_BACKEND_ORIGIN + '/deleteElectionCandidates',
         })
             .then(res => {
                 deleteCandidateRequests(_electionAddress);
@@ -246,7 +246,7 @@ function AdminHome() {
                 electionAddress: _electionAddress,
             },
             withCredentials: true,
-            url: process.env.REACT_APP_BACKEND_ORIGIN+'/deleteElectionCandidateRequests',
+            url: process.env.REACT_APP_BACKEND_ORIGIN + '/deleteElectionCandidateRequests',
         })
             .then(res => {
                 alert(res.data);
@@ -310,7 +310,7 @@ function AdminHome() {
                                                                 {
                                                                     checkElectionAdmin(election.adminUsername) ?
                                                                         <span>
-                                                                            <Button onClick={() => { gotoStatistics(election) }} className="btn btn-warning" style={{ marginLeft: "5px" }}><span >Statistics</span></Button>
+                                                                            <Button onClick={() => { gotoStatistics(election) }} className="btn btn-warning" style={{ marginLeft: "5px" }}><span>Election Details</span></Button>
                                                                             <Button onClick={() => { cancelElection(election.electionAddress) }} className="btn btn-danger" style={{ marginLeft: "25px" }}>Cancel Election</Button>
                                                                         </span>
                                                                         :

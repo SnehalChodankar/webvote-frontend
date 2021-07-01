@@ -161,6 +161,7 @@ function CandidateGraph(props) {
         votes.reverse();
 
         if (votes[0] === votes[1]) {
+            document.getElementById("totalVotes").innerHTML = "Total Votes: " + totalVotes;
             document.getElementById("winner").innerHTML = "It's a DRAW!!!";
         }
         else {

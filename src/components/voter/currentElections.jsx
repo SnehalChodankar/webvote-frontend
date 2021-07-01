@@ -300,7 +300,7 @@ function CurrentElectionsVoter() {
                                                                             checkVoted(data.walletAddress, election.electionAddress)
                                                                         }
                                                                         <Button hidden id={election.electionAddress} onClick={() => { gotoStatistics(election) }} className="btn btn-warning" style={{ marginLeft: "5px", width: "150px" }}>
-                                                                            <span>Statistics</span>
+                                                                            <span>Election Details</span>
                                                                         </Button>
 
                                                                         <Button hidden name={election.electionAddress} onClick={() => { gotoVote(election) }} className="btn btn-primary" style={{ marginLeft: "5px", width: "150px" }}>

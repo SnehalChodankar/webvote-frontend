@@ -131,7 +131,7 @@ function AboutUs() {
                             This application will outplay existing systems in its strength and cost-effective nature. <br />
                                 <br />
                             WebVote uses blockchain technology to securely store the votes.
-                            With the integration of blockchain, the vote temperating is close to impossible.
+                            With the integration of blockchain, the vote tempering is close to impossible.
                             </p>
                         </Col>
                     </Row>
